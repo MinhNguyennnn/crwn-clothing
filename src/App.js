@@ -1,8 +1,9 @@
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import ShopPage from './pages/shop/shop.component';
-import HomePage from '../src/pages/homepage/homepage.component'
+import HomePage from '../src/pages/homepage/homepage.component';
+import Header from '../src/components/header/header.component';
 
 const HatsPage = () => {
   return (
@@ -31,13 +32,17 @@ const Sneakers = () => {
 
 function App() {
   return (
-    <div >
-      <Route exact path='/' component={HomePage} />
-      <Route exact path='/shop/hats' component={HatsPage} />
-      <Route exact path='/shop/Jackets' component={Jackets} />
-      <Route exact path='/shop/Sneakers' component={Sneakers} />
-      <Route exact path='/shop' component={ShopPage} />
+    <div>
+      <Header />
+      <Switch >
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/shop/hats' component={HatsPage} />
+        <Route exact path='/shop/Jackets' component={Jackets} />
+        <Route exact path='/shop/Sneakers' component={Sneakers} />
+        <Route exact path='/shop' component={ShopPage} />
+      </Switch>
     </div>
+
   );
 }
 
